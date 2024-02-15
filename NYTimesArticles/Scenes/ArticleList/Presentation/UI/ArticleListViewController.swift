@@ -12,12 +12,11 @@ class ArticleListViewController: UIViewController {
     var viewModel: ArticleListViewModelContractor?
     private var listDisplayItem: ArticleListDisplayItem?
     @IBOutlet private weak var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        print("I'm here")
         setupTableView()
         bindViewModel()
         viewModel?.onViewLoad()
@@ -25,27 +24,27 @@ class ArticleListViewController: UIViewController {
     
     private func setupTableView() {
         
-            tableView.estimatedRowHeight = 88
-            tableView.rowHeight = UITableView.automaticDimension
-            tableView.register(UINib(nibName: "ArticleCell",
-                                     bundle: nil),
-                                    forCellReuseIdentifier: "ArticleCell")
+        tableView.estimatedRowHeight = 88
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UINib(nibName: "ArticleCell",
+                                 bundle: nil),
+                           forCellReuseIdentifier: "ArticleCell")
     }
-
+    
     
     private func bindViewModel() {
         viewModel?.viewState.bind(listener: { [weak self] (viewState) in
             self?.onViewStateChange(newState: viewState)
         })
     }
-
+    
     private func onViewStateChange(newState: ArticleListViewState) {
-        
+        Utility.removeActivityIndicator(fromView: self.view)
         switch newState {
         case .idle:
-            print(".idle")
+            return
         case .loading:
-            print("loading")
+            Utility.addActivityIndicator(toView: self.view)
         case .listingArticles(let articleListDisplayItem):
             self.listDisplayItem = articleListDisplayItem
             self.title = articleListDisplayItem.title
@@ -59,17 +58,17 @@ class ArticleListViewController: UIViewController {
 
 
 extension ArticleListViewController: UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.listDisplayItem?.cellDisplayItems?.count ?? 0
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell,
               let cellDisplayItem = self.listDisplayItem?.cellDisplayItems?[indexPath.row]  else {
             return UITableViewCell()
@@ -91,7 +90,7 @@ extension ArticleListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    
+        
     }
-
+    
 }

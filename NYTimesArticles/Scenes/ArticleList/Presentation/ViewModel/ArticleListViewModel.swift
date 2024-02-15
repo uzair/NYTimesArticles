@@ -12,17 +12,12 @@ internal enum ArticleListViewState {
     case loading
     case listingArticles(ArticleListDisplayItem)
     case error(String)
-    
 }
 
-
 protocol ArticleListViewModelContractor {
-    
     var viewState: Bind<ArticleListViewState> { get }
     func onViewLoad()
     func onClickListItemAt(index: Int)
-    
-    
 }
 
 
@@ -38,7 +33,7 @@ internal final class ArticleListViewModel: ArticleListViewModelContractor {
     var mapper: ArticleListViewModelMapperInterface?
     
     var viewState: Bind<ArticleListViewState> = Bind(.idle)
-    var coordinator: Coordinator?
+  //  var coordinator: Coordinator?
     
     init(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor,
          mapper: ArticleListViewModelMapperInterface?) {
@@ -49,7 +44,6 @@ internal final class ArticleListViewModel: ArticleListViewModelContractor {
     }
     
     func onViewLoad() {
-        
         onLoadArticlesMetaData()
     }
     
