@@ -19,13 +19,13 @@ enum APIKey: String {
     case productionKey = "MR95vSebKsGdvB7uIfBDxCSex3GtLev"
 }
 
-protocol RuntimeConfigurationResolvable {
-    func apiKeyFor(environment: Environment) -> APIKey
-    func defaultEnvironment() -> Environment
-    func apiVersion() -> APIVersion
-}
+//protocol EndpointPathResolverContracor {
+//    func apiKeyFor(environment: Environment) -> APIKey
+//    func defaultEnvironment() -> Environment
+//    func apiVersion() -> APIVersion
+//}
 
-extension RuntimeConfigurationResolvable {
+internal class EndpointPathResolver {
 
     func apiKeyFor(environment: Environment) -> APIKey {
 
