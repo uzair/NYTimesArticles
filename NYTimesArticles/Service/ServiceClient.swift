@@ -52,8 +52,10 @@ private extension ServiceClient {
 
     func buildRequest(descriptor: RequestDescriptor) -> URLRequest {
 
-        let url = descriptor.baseURL.appendingPathComponent(descriptor.path)
+        let url = URL(string: descriptor.baseURL.absoluteString + descriptor.path)
+       // let url = descriptor.baseURL.appendingPathComponent(descriptor.path)
         print(url)
+       
         var headers = descriptor.headers ?? [:]
         headers["Content-Type"] = "application/json"
         headers["Accept"] = "*/*"
@@ -63,10 +65,9 @@ private extension ServiceClient {
         
         print("params ", params as Any)
         
-        let request = self.request(url,
+        let request = self.request(url!,
                                    method: descriptor.method,
                                    parameters: params,
-                                   encoding: descriptor.encoding,
                                    headers: headers)
         return request
     }
@@ -80,12 +81,9 @@ private extension ServiceClient {
         var originalRequest = URLRequest(url: url)
         originalRequest.allHTTPHeaderFields = headers
         originalRequest.httpMethod = method.rawValue
-        do {
-            let encodedURLRequest = try encoding.encode(originalRequest, with: parameters)
-            return encodedURLRequest
-        } catch {
+
             return originalRequest
-        }
+
     }
 }
 
