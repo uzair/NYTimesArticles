@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+class ArticleListDisplayItem {
+    
+    let cellDisplayItems: [ArticleCellDisplayItem]?
+    let title: String
+    
+    init (cellDisplayItems: [ArticleCellDisplayItem]?, title: String) {
+        
+        self.cellDisplayItems = cellDisplayItems
+        self.title = title
+
+                
+    }
+}

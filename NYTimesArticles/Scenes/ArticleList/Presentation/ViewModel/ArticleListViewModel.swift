@@ -10,7 +10,7 @@ import Foundation
 internal enum ArticleListViewState {
     case idle
     case loading
-    case listingArticles(ArticleListDisplayItemInterface)
+    case listingArticles(ArticleListDisplayItem)
     case error(String)
     
 }
@@ -25,12 +25,9 @@ protocol ArticleListViewModelContractor {
     
 }
 
-protocol ArticleListDisplayItemInterface {}
-
-//protocol ConsentCellDisplayItemInterface {}
 
 protocol ArticleListViewModelMapperInterface {
-    func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItemInterface
+    func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem
 }
 
 internal final class ArticleListViewModel: ArticleListViewModelContractor {

@@ -7,4 +7,17 @@
 
 import Foundation
 
-class ArticlesMetaDataViewModelMapper: ArticlesMetaDataVi
+class ArticleListViewModelMapper: ArticleListViewModelMapperInterface {
+    
+    func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem {
+        
+        let cellDisplayItems = cellDisplayItemsFor(articles: articlesMetaData.results)
+        return ArticleListDisplayItem(cellDisplayItems: cellDisplayItems, title: "NY Times Most Popular")
+    }
+    
+    func cellDisplayItemsFor(articles:[Article]?) -> [ArticleCellDisplayItem]? {
+        let displayItems = articles?.compactMap { ArticleCellDisplayItem(article: $0)}
+        return displayItems
+        
+    }
+}
