@@ -33,13 +33,14 @@ internal final class ArticleListViewModel: ArticleListViewModelContractor {
     var mapper: ArticleListViewModelMapperInterface?
     
     var viewState: Bind<ArticleListViewState> = Bind(.idle)
-  //  var coordinator: Coordinator?
+    var coordinator: Coordinator?
     
     init(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor,
-         mapper: ArticleListViewModelMapperInterface?) {
+         mapper: ArticleListViewModelMapperInterface?, coordinator: Coordinator?) {
         
         self.getArticlesMetaDataUseCase  = getArticlesMetaDataUseCase
         self.mapper = mapper
+        self.coordinator = coordinator
         
     }
     

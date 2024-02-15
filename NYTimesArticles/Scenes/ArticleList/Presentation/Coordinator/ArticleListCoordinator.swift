@@ -8,20 +8,22 @@
 import UIKit
 
 class ArticleListCoordinator: Coordinator {
-    var navigationController: UINavigationController
+
+    var resolver: CoordinatorResolver?
     
-    init(navigationController: UINavigationController) {
-         self.navigationController = navigationController
+    init() {
      }
 
     func start() {
         
-        let viewController = ArticleListViewController(coordinator: self)
+        //let viewController = ArticleListViewController(coordinator: self)
         
-        let viewModel = ArticleListViewModel(getArticlesMetaDataUseCase: GetArticlesMetaData(), mapper: ArticleListViewModelMapper())
+        let viewModel = ArticleListViewModel(getArticlesMetaDataUseCase: GetArticlesMetaData(), mapper: ArticleListViewModelMapper(), coordinator: self)
         
-        viewController.viewModel = viewModel
+        let viewController = ArticleListViewController(viewModel: viewModel)
         
-        self.navigationController.pushViewController(viewController, animated: false)
+        self.resolver?.navigationController.pushViewController(viewController, animated: true)
+        
+
     }
 }

@@ -9,14 +9,12 @@ import UIKit
 
 class ArticleListViewController: UIViewController {
     
-    var viewModel: ArticleListViewModelContractor?
+    private let viewModel: ArticleListViewModelContractor?
     private var listDisplayItem: ArticleListDisplayItem?
     @IBOutlet private weak var tableView: UITableView!
     
-    weak var coordinator: ArticleListCoordinator?
-    
-    init(coordinator: ArticleListCoordinator) {
-          self.coordinator = coordinator
+    init(viewModel: ArticleListViewModelContractor) {
+          self.viewModel = viewModel
           super.init(nibName: "ArticleListViewController", bundle: nil)
       }
 
