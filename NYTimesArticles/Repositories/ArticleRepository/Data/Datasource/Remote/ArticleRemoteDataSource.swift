@@ -1,0 +1,32 @@
+//
+//  ArticleRemoteDataSource.swift
+//  NYTimesArticles
+//
+//  Created by Macbook on 14/02/2024.
+//
+
+import Foundation
+
+internal protocol ArticleRemoteDataSourceContractor {
+
+    func getArticlesMetaData(completion: @escaping (Result<ArticlesMetaData, ServiceError>) -> Void)
+    
+}
+
+internal final class ArticleRemoteDataSource: ArticleRemoteDataSourceContractor {
+
+    private let serviceManager: ServiceManagerContractor
+
+    init(serviceManager: ServiceManagerContractor = ServiceManager()) {
+        self.serviceManager = serviceManager
+    }
+    
+       
+    func getArticlesMetaData(completion: @escaping (Result<ArticlesMetaData, ServiceError>) -> Void) {
+        
+      //  let descriptor = ConsentListRequestDescriptor(consentType: consentType, consentStatus: consentStatus)
+      //  serviceManager.performRequest(desriptor: descriptor, completion: completion)
+    }
+    
+    
+}
