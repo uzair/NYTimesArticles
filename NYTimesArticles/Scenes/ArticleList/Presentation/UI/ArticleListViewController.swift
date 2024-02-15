@@ -2,7 +2,7 @@
 //  ArticleListViewController.swift
 //  NYTimesArticles
 //
-//  Created by Macbook on 14/02/2024.
+//  Created by Macbook on 15/02/2024.
 //
 
 import UIKit
@@ -13,9 +13,8 @@ class ArticleListViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print("here")
     }
-    
+
 
     /*
     // MARK: - Navigation
