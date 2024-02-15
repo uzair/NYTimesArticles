@@ -13,6 +13,17 @@ class ArticleListViewController: UIViewController {
     private var listDisplayItem: ArticleListDisplayItem?
     @IBOutlet private weak var tableView: UITableView!
     
+    weak var coordinator: ArticleListCoordinator?
+    
+    init(coordinator: ArticleListCoordinator) {
+          self.coordinator = coordinator
+          super.init(nibName: "ArticleListViewController", bundle: nil)
+      }
+
+      required init?(coder: NSCoder) {
+          fatalError("init(coder:) has not been implemented")
+      }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
