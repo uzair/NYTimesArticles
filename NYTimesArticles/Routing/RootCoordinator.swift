@@ -10,7 +10,7 @@ import UIKit
 
 internal final class DefaultRootCoordinator: RootCoordinator {
     
-    var resolver: CoordinatorResolver?
+    var resolver: CoordinatorResolverContracor?
     var childCoordinator: Coordinator?
 
     var presentingViewController: UIViewController?

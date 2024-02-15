@@ -10,7 +10,7 @@ import Foundation
 struct ArticlesMetaData: Decodable {
     var status: String?
     var copyright: String?
-    var num_results: String?
+    var num_results: Int?
     var results: [Article]?
     var eta_id: String?
 
@@ -20,10 +20,10 @@ struct Article: Decodable {
     
     var uri: String?
     var url: String?
-    var id: String?
-    var asset_id: String?
+    var id: Int?
+    var asset_id: Int?
     var source: String?
-    var published: String?
+    var published_date: String?
     var updated: String?
     var section: String?
     var subsection: String?
@@ -47,15 +47,21 @@ struct Media: Decodable {
     var subtype: String?
     var caption: String?
     var copyright: String?
-    var approved_for_syndication: String?
-    var media_metadata:[MediaMetaData]?
+    var approvedForSyndication: Int?
+    var mediaMetadata:[MediaMetaData]?
+    
+    enum CodingKeys: String, CodingKey {
+        case type, subtype, caption, copyright
+        case approvedForSyndication = "approved_for_syndication"
+        case mediaMetadata = "media-metadata"
+    }
 }
 
 struct MediaMetaData: Decodable {
     
     var url: String?
     var format: String?
-    var height: String?
-    var width: String?
+    var height: Int?
+    var width: Int?
     
 }

@@ -10,7 +10,7 @@ import UIKit
 
 internal protocol Coordinator {
 
-    var resolver: CoordinatorResolver? { get set }
+    var resolver: CoordinatorResolverContracor? { get set }
     var navigationController: UINavigationController? { get set }
     func start()
 }

@@ -26,8 +26,12 @@ enum APIKey: String {
 //}
 
 internal class EndpointPathResolver {
+    
+    enum EndPointPath: String {
+        case articlesMetadata = "/mostpopular/"
+    }
 
-    func apiKeyFor(environment: Environment) -> APIKey {
+    class func apiKeyFor(environment: Environment) -> APIKey {
 
         switch environment {
         case .sandbox:
@@ -37,11 +41,11 @@ internal class EndpointPathResolver {
         }
     }
 
-    func defaultEnvironment() -> Environment {
+    class func defaultEnvironment() -> Environment {
         return .sandbox
     }
     
-    func apiVersion() -> APIVersion {
+    class func apiVersion() -> APIVersion {
         return .v2
     }
 }

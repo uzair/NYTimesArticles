@@ -22,9 +22,8 @@ class ArticleCellDisplayItem {
         
         if let media = article.media {
             if media.count > 0 {
-                if let mediaMetaData =  media[0].media_metadata {
+                if let mediaMetaData =  media[0].mediaMetadata {
                     if mediaMetaData.count > 0 {
-                        
                         self.thumbnail = mediaMetaData[0].url
                     }
                 }

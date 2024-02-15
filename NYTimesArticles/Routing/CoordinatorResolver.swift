@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+internal final class CoordinatorResolver: CoordinatorResolverContracor {
+    
+    func articleListCoordinator() -> Coordinator? {
+        
+        let coordinator = ArticleListCoordinator()
+        coordinator.resolver = self
+        return coordinator
+    }
+    
+}
+

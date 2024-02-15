@@ -8,14 +8,11 @@
 import Foundation
 
 internal final class ArticlesMetaDataRequestDescriptor: RequestDescriptor {
-    
-    private let environment: Environment
-    private let runtimeConfigurationResolver: RuntimeConfigurationResolvable
 
-    init(environment: Environment = EnvironmentManager.sharedInstance.getEnvironment(), runtimeConfigurationResolver: RuntimeConfigurationResolvable = DependencyInjectionContainer.shared.mandatoryResolve(type: RuntimeConfigurationResolvable.self)) {
-        
+    private let environment: Environment
+
+    init(environment: Environment = EnvironmentManager.sharedInstance.getEnvironment()) {
         self.environment = environment
-        self.runtimeConfigurationResolver = runtimeConfigurationResolver
     }
     
     var baseURL: URL {
@@ -23,17 +20,13 @@ internal final class ArticlesMetaDataRequestDescriptor: RequestDescriptor {
     }
     
     var path: String {
-        EndPointPath.articlesMetadataRequestDescriptor.rawValue + runtimeConfigurationResolver.apiVersion().rawValue + "/viewed/7.json?api-key=" + runtimeConfigurationResolver.apiKeyFor(environment: environment).rawValue
+        EndpointPathResolver.EndPointPath.articlesMetadata.rawValue + EndpointPathResolver.apiVersion().rawValue + "/viewed/7.json?api-key=" + EndpointPathResolver.apiKeyFor(environment: environment).rawValue
     }
     
     var method: HTTPMethod {
         .get
     }
-    
-    var encoding: ParameterEncoding {
-        JsonEncoding.defaultEncoding
-    }
-    
+        
     var params: Parameters? {
         nil
     }
