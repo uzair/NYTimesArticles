@@ -11,7 +11,7 @@ internal enum ArticleListViewState {
     case idle
     case loading
     case listingArticles(ArticleListDisplayItem)
-    case error(String)
+    case error(ServiceError)
 }
 
 protocol ArticleListViewModelContractor {
@@ -56,34 +56,19 @@ internal final class ArticleListViewModel: ArticleListViewModelContractor {
 private extension ArticleListViewModel {
     
     func onLoadArticlesMetaData() {
-        
         viewState.value = .loading
-        
-        if (!Reachability.isConnectedToNetwork()) {
-            viewState.value = .error(AppError.noInternet.errorCode)
-            return
-        }
-        
         getArticlesMetaDataUseCase.getArticleList { [weak self] result in
-            
-            guard let safeSelf = self else {
-                return
-            }
-            
+
             switch result {
             case .success(let articlesMetaData):
-                
-                safeSelf.articlesMetaData = articlesMetaData
-                if let mapper = safeSelf.mapper {
-                    safeSelf.viewState.value = .listingArticles(mapper.listDisplayItem(articlesMetaData: articlesMetaData))
+                self?.articlesMetaData = articlesMetaData
+                if let mapper = self?.mapper {
+                    self?.viewState.value = .listingArticles(mapper.listDisplayItem(articlesMetaData: articlesMetaData))
                 }
                 return
             case .failure(let error):
-                if error == .internetNotAvailable{
-                    self?.viewState.value = .error(AppError.noInternet.errorCode)
-                }else{
-                    safeSelf.viewState.value = .error(AppError.failedFetchArticlesMetaData.errorCode)
-                }
+                self?.viewState.value = .error(error)
+
             }
         }
     }
