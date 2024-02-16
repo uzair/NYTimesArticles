@@ -19,12 +19,6 @@ enum APIKey: String {
     case productionKey = "MR95vSebKsGdvB7uIfBDxCSex3GtLev"
 }
 
-//protocol EndpointPathResolverContracor {
-//    func apiKeyFor(environment: Environment) -> APIKey
-//    func defaultEnvironment() -> Environment
-//    func apiVersion() -> APIVersion
-//}
-
 internal class EndpointPathResolver {
     
     enum EndPointPath: String {

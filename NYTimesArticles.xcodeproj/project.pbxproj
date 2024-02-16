@@ -57,6 +57,8 @@
 		FAB104632B7F48C100CF22CC /* ArticleRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104622B7F48C100CF22CC /* ArticleRepositoryTests.swift */; };
 		FAB104662B7F6E3C00CF22CC /* ArticleRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104652B7F6E3C00CF22CC /* ArticleRemoteDataSourceTests.swift */; };
 		FAB104692B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104682B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift */; };
+		FAB1046C2B7F92B900CF22CC /* ArticlesMetaDataRequestDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1046B2B7F92B900CF22CC /* ArticlesMetaDataRequestDescriptorTests.swift */; };
+		FAB1046E2B7F984200CF22CC /* ArticlesMetaDataRequestDecriptorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1046D2B7F984200CF22CC /* ArticlesMetaDataRequestDecriptorConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		FAB104622B7F48C100CF22CC /* ArticleRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepositoryTests.swift; sourceTree = "<group>"; };
 		FAB104652B7F6E3C00CF22CC /* ArticleRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRemoteDataSourceTests.swift; sourceTree = "<group>"; };
 		FAB104682B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticlesMetaDataUseCaseTests.swift; sourceTree = "<group>"; };
+		FAB1046B2B7F92B900CF22CC /* ArticlesMetaDataRequestDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesMetaDataRequestDescriptorTests.swift; sourceTree = "<group>"; };
+		FAB1046D2B7F984200CF22CC /* ArticlesMetaDataRequestDecriptorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesMetaDataRequestDecriptorConstants.swift; sourceTree = "<group>"; };
 		FF8AA18D31182E1E88F93E0D /* libPods-NYTimesArticles-NYTimesArticlesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NYTimesArticles-NYTimesArticlesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -351,6 +355,7 @@
 		FA7196B12B7CFB5F00BF8DA9 /* NYTimesArticlesTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAB1046A2B7F92A300CF22CC /* ArticlesMetaDataRequestDescriptorTests */,
 				FAB104672B7F7C0A00CF22CC /* GetArticlesMetaDataUseCaseTests */,
 				FAB104642B7F6E0E00CF22CC /* ArticleRemoteDataSourceTests */,
 				FAB104612B7F489B00CF22CC /* ArticleRepositoryTests */,
@@ -665,6 +670,15 @@
 			path = GetArticlesMetaDataUseCaseTests;
 			sourceTree = "<group>";
 		};
+		FAB1046A2B7F92A300CF22CC /* ArticlesMetaDataRequestDescriptorTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB1046B2B7F92B900CF22CC /* ArticlesMetaDataRequestDescriptorTests.swift */,
+				FAB1046D2B7F984200CF22CC /* ArticlesMetaDataRequestDecriptorConstants.swift */,
+			);
+			path = ArticlesMetaDataRequestDescriptorTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -908,6 +922,8 @@
 			files = (
 				FAB104632B7F48C100CF22CC /* ArticleRepositoryTests.swift in Sources */,
 				FAB1045C2B7F3E8400CF22CC /* ServiceClientTests.swift in Sources */,
+				FAB1046E2B7F984200CF22CC /* ArticlesMetaDataRequestDecriptorConstants.swift in Sources */,
+				FAB1046C2B7F92B900CF22CC /* ArticlesMetaDataRequestDescriptorTests.swift in Sources */,
 				FAB104602B7F403C00CF22CC /* ServiceClientTestsUser.swift in Sources */,
 				FAB104692B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift in Sources */,
 				FAB1045E2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift in Sources */,
