@@ -56,6 +56,7 @@
 		FAB1045C2B7F3E8400CF22CC /* ServiceClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1045B2B7F3E8400CF22CC /* ServiceClientTests.swift */; };
 		FAB1045E2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1045D2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift */; };
 		FAB104602B7F403C00CF22CC /* ServiceClientTestsUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1045F2B7F403C00CF22CC /* ServiceClientTestsUser.swift */; };
+		FAB104632B7F48C100CF22CC /* ArticleRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104622B7F48C100CF22CC /* ArticleRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		FAB1045B2B7F3E8400CF22CC /* ServiceClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientTests.swift; sourceTree = "<group>"; };
 		FAB1045D2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDescriptorWithSuccessState.swift; sourceTree = "<group>"; };
 		FAB1045F2B7F403C00CF22CC /* ServiceClientTestsUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientTestsUser.swift; sourceTree = "<group>"; };
+		FAB104622B7F48C100CF22CC /* ArticleRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepositoryTests.swift; sourceTree = "<group>"; };
 		FF8AA18D31182E1E88F93E0D /* libPods-NYTimesArticles-NYTimesArticlesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NYTimesArticles-NYTimesArticlesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -349,6 +351,7 @@
 		FA7196B12B7CFB5F00BF8DA9 /* NYTimesArticlesTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAB104612B7F489B00CF22CC /* ArticleRepositoryTests */,
 				FAB104532B7F3B8C00CF22CC /* ServiceClientTests */,
 				FAB1044E2B7F3AF900CF22CC /* Reachability */,
 				FA7196B22B7CFB5F00BF8DA9 /* NYTimesArticlesTests.swift */,
@@ -654,6 +657,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		FAB104612B7F489B00CF22CC /* ArticleRepositoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB104622B7F48C100CF22CC /* ArticleRepositoryTests.swift */,
+			);
+			path = ArticleRepositoryTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -897,6 +908,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB104632B7F48C100CF22CC /* ArticleRepositoryTests.swift in Sources */,
 				FAB1045C2B7F3E8400CF22CC /* ServiceClientTests.swift in Sources */,
 				FAB104602B7F403C00CF22CC /* ServiceClientTestsUser.swift in Sources */,
 				FAB1045E2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift in Sources */,

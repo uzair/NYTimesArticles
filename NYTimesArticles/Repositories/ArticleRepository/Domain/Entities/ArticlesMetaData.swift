@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArticlesMetaData: Decodable {
+struct ArticlesMetaData: Codable {
     var status: String?
     var copyright: String?
     var num_results: Int?
@@ -16,7 +16,7 @@ struct ArticlesMetaData: Decodable {
 
 }
 
-struct Article: Decodable {
+struct Article: Codable {
     
     var uri: String?
     var url: String?
@@ -41,7 +41,7 @@ struct Article: Decodable {
     var media: [Media]?
 }
 
-struct Media: Decodable {
+struct Media: Codable {
     
     var type: String?
     var subtype: String?
@@ -57,7 +57,7 @@ struct Media: Decodable {
     }
 }
 
-struct MediaMetaData: Decodable {
+struct MediaMetaData: Codable {
     
     var url: String?
     var format: String?

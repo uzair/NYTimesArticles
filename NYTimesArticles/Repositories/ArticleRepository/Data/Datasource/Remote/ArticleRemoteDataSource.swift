@@ -26,8 +26,7 @@ internal final class ArticleRemoteDataSource: ArticleRemoteDataSourceContractor 
         
         let descriptor = ArticlesMetaDataRequestDescriptor()
         serviceManager.performRequest(desriptor: descriptor, completion: completion)
-      //  let descriptor = ConsentListRequestDescriptor(consentType: consentType, consentStatus: consentStatus)
-      //  serviceManager.performRequest(desriptor: descriptor, completion: completion)
+
     }
     
     
