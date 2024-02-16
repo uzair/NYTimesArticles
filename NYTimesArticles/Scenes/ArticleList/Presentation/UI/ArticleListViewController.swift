@@ -98,7 +98,7 @@ extension ArticleListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.viewModel?.onClickListItemAt(index: indexPath.row)
         
     }
     

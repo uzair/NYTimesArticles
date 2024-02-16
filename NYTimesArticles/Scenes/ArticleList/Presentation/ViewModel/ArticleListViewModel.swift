@@ -50,6 +50,9 @@ internal final class ArticleListViewModel: ArticleListViewModelContractor {
     
     func onClickListItemAt(index: Int) {
         
+        let urlString = self.articlesMetaData?.results?[index].url
+        let nextCoordinator = coordinator?.resolver?.articleDetailCoordinator(urlString: urlString)
+        nextCoordinator?.start()
     }
 }
 

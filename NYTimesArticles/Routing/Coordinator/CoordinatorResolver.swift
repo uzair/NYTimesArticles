@@ -30,7 +30,10 @@ final class CoordinatorResolver: CoordinatorResolverContractor {
     }
     
     func articleDetailCoordinator(urlString: String?) -> Coordinator? {
-        return nil
+        
+        let coordinator = ArticleDetailCoordinator(articleDetailUrl: urlString)
+        coordinator.resolver = self
+        return coordinator
     }
     
     

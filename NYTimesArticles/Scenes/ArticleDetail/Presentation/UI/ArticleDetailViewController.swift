@@ -6,24 +6,61 @@
 //
 
 import UIKit
+import WebKit
 
 class ArticleDetailViewController: UIViewController {
+    
+    @IBOutlet private weak var webView: WKWebView!
+    
+    var viewModel: ArticleDetailViewModelContractor?
+    init(viewModel: ArticleDetailViewModelContractor) {
+          self.viewModel = viewModel
+          super.init(nibName: "ArticleDetailViewController", bundle: nil)
+      }
+
+      required init?(coder: NSCoder) {
+          fatalError("init(coder:) has not been implemented")
+      }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupWebView()
+        bindViewModel()
+        viewModel?.onViewLoad()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func bindViewModel() {
+        viewModel?.viewState.bind(listener: { [weak self] (viewState) in
+            self?.onViewStateChange(newState: viewState)
+        })
     }
-    */
-
+    
+    private func setupWebView() {
+        self.webView.allowsLinkPreview = true
+        self.webView.navigationDelegate = self
+    }
+    
+    private func onViewStateChange(newState: ArticleDetailViewState) {
+        
+        switch newState {
+        case .idle:
+            return
+        case .loadingUrl(let urlString):
+            if let urlString = urlString , let url = URL(string: urlString) {
+                Utility.addActivityIndicator(toView: self.view)
+                self.webView.load(URLRequest(url: url))
+            }
+        }
+    }
 }
+
+extension ArticleDetailViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        // Web view finished loading content
+        Utility.removeActivityIndicator(fromView: self.view)
+        
+    }
+}
+
