@@ -53,17 +53,12 @@ private extension ServiceClient {
     func buildRequest(descriptor: RequestDescriptor) -> URLRequest {
 
         let url = URL(string: descriptor.baseURL.absoluteString + descriptor.path)
-       // let url = descriptor.baseURL.appendingPathComponent(descriptor.path)
-        print(url)
        
         var headers = descriptor.headers ?? [:]
         headers["Content-Type"] = "application/json"
         headers["Accept"] = "*/*"
 
-        var params = descriptor.params
-        var paramHeader = params?["header"] as? [String : Any]
-        
-        print("params ", params as Any)
+        let params = descriptor.params
         
         let request = self.request(url!,
                                    method: descriptor.method,

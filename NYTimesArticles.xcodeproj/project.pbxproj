@@ -49,6 +49,13 @@
 		FA7197122B7D440900BF8DA9 /* EndpointPathResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7197112B7D440900BF8DA9 /* EndpointPathResolver.swift */; };
 		FA7197152B7D4AAD00BF8DA9 /* BaseURLResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7197142B7D4AAD00BF8DA9 /* BaseURLResolver.swift */; };
 		FA7197182B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7197172B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift */; };
+		FAB104502B7F3B0C00CF22CC /* Reachability + swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1044F2B7F3B0C00CF22CC /* Reachability + swizzling.swift */; };
+		FAB104522B7F3B5400CF22CC /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104512B7F3B5400CF22CC /* MockURLProtocol.swift */; };
+		FAB104572B7F3DC200CF22CC /* ServiceClientStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104562B7F3DC200CF22CC /* ServiceClientStubs.swift */; };
+		FAB1045A2B7F3E3300CF22CC /* ServiceClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104592B7F3E3300CF22CC /* ServiceClientConstants.swift */; };
+		FAB1045C2B7F3E8400CF22CC /* ServiceClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1045B2B7F3E8400CF22CC /* ServiceClientTests.swift */; };
+		FAB1045E2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1045D2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift */; };
+		FAB104602B7F403C00CF22CC /* ServiceClientTestsUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1045F2B7F403C00CF22CC /* ServiceClientTestsUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +127,13 @@
 		FA7197112B7D440900BF8DA9 /* EndpointPathResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointPathResolver.swift; sourceTree = "<group>"; };
 		FA7197142B7D4AAD00BF8DA9 /* BaseURLResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURLResolver.swift; sourceTree = "<group>"; };
 		FA7197172B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
+		FAB1044F2B7F3B0C00CF22CC /* Reachability + swizzling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reachability + swizzling.swift"; sourceTree = "<group>"; };
+		FAB104512B7F3B5400CF22CC /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		FAB104562B7F3DC200CF22CC /* ServiceClientStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientStubs.swift; sourceTree = "<group>"; };
+		FAB104592B7F3E3300CF22CC /* ServiceClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientConstants.swift; sourceTree = "<group>"; };
+		FAB1045B2B7F3E8400CF22CC /* ServiceClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientTests.swift; sourceTree = "<group>"; };
+		FAB1045D2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDescriptorWithSuccessState.swift; sourceTree = "<group>"; };
+		FAB1045F2B7F403C00CF22CC /* ServiceClientTestsUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientTestsUser.swift; sourceTree = "<group>"; };
 		FF8AA18D31182E1E88F93E0D /* libPods-NYTimesArticles-NYTimesArticlesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NYTimesArticles-NYTimesArticlesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -335,6 +349,8 @@
 		FA7196B12B7CFB5F00BF8DA9 /* NYTimesArticlesTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAB104532B7F3B8C00CF22CC /* ServiceClientTests */,
+				FAB1044E2B7F3AF900CF22CC /* Reachability */,
 				FA7196B22B7CFB5F00BF8DA9 /* NYTimesArticlesTests.swift */,
 			);
 			path = NYTimesArticlesTests;
@@ -593,6 +609,51 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		FAB1044E2B7F3AF900CF22CC /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				FAB1044F2B7F3B0C00CF22CC /* Reachability + swizzling.swift */,
+				FAB104512B7F3B5400CF22CC /* MockURLProtocol.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		FAB104532B7F3B8C00CF22CC /* ServiceClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB104582B7F3E2100CF22CC /* Constants */,
+				FAB104542B7F3D8600CF22CC /* Stubs */,
+				FAB104552B7F3DA100CF22CC /* Models */,
+				FAB1045B2B7F3E8400CF22CC /* ServiceClientTests.swift */,
+			);
+			path = ServiceClientTests;
+			sourceTree = "<group>";
+		};
+		FAB104542B7F3D8600CF22CC /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				FAB104562B7F3DC200CF22CC /* ServiceClientStubs.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		FAB104552B7F3DA100CF22CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAB1045D2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift */,
+				FAB1045F2B7F403C00CF22CC /* ServiceClientTestsUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FAB104582B7F3E2100CF22CC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FAB104592B7F3E3300CF22CC /* ServiceClientConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -836,6 +897,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB1045C2B7F3E8400CF22CC /* ServiceClientTests.swift in Sources */,
+				FAB104602B7F403C00CF22CC /* ServiceClientTestsUser.swift in Sources */,
+				FAB1045E2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift in Sources */,
+				FAB104572B7F3DC200CF22CC /* ServiceClientStubs.swift in Sources */,
+				FAB104522B7F3B5400CF22CC /* MockURLProtocol.swift in Sources */,
+				FAB104502B7F3B0C00CF22CC /* Reachability + swizzling.swift in Sources */,
+				FAB1045A2B7F3E3300CF22CC /* ServiceClientConstants.swift in Sources */,
 				FA7196B32B7CFB5F00BF8DA9 /* NYTimesArticlesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

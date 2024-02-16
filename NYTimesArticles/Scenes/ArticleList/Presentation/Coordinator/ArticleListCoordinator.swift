@@ -16,8 +16,6 @@ class ArticleListCoordinator: Coordinator {
 
     func start() {
         
-        //let viewController = ArticleListViewController(coordinator: self)
-        
         let viewModel = ArticleListViewModel(getArticlesMetaDataUseCase: GetArticlesMetaData(), mapper: ArticleListViewModelMapper(), coordinator: self)
         
         let viewController = ArticleListViewController(viewModel: viewModel)
