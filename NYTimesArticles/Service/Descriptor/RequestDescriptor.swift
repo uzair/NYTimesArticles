@@ -294,8 +294,6 @@ internal protocol RequestDescriptor {
     var baseURL: URL { get }
     var path: String { get }
     var method: HTTPMethod { get }
-    var params: Parameters? { get }
-    var headers: HTTPHeaders? { get }
 }
 
 

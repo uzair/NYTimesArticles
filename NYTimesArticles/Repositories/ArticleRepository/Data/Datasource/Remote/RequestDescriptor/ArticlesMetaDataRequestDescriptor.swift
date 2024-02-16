@@ -26,13 +26,5 @@ internal final class ArticlesMetaDataRequestDescriptor: RequestDescriptor {
     var method: HTTPMethod {
         .get
     }
-        
-    var params: Parameters? {
-        nil
-    }
-    
-    var headers: HTTPHeaders? {
-        nil
-    }
     
 }

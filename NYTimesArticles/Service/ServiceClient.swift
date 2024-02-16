@@ -54,15 +54,12 @@ private extension ServiceClient {
 
         let url = URL(string: descriptor.baseURL.absoluteString + descriptor.path)
        
-        var headers = descriptor.headers ?? [:]
+        var headers: [String:String] = [:]
         headers["Content-Type"] = "application/json"
         headers["Accept"] = "*/*"
 
-        let params = descriptor.params
-        
         let request = self.request(url!,
                                    method: descriptor.method,
-                                   parameters: params,
                                    headers: headers)
         return request
     }
