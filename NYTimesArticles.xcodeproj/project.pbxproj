@@ -48,7 +48,6 @@
 		FA71970F2B7D40F700BF8DA9 /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71970E2B7D40F700BF8DA9 /* EnvironmentManager.swift */; };
 		FA7197122B7D440900BF8DA9 /* EndpointPathResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7197112B7D440900BF8DA9 /* EndpointPathResolver.swift */; };
 		FA7197152B7D4AAD00BF8DA9 /* BaseURLResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7197142B7D4AAD00BF8DA9 /* BaseURLResolver.swift */; };
-		FA7197182B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7197172B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift */; };
 		FAB104502B7F3B0C00CF22CC /* Reachability + swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1044F2B7F3B0C00CF22CC /* Reachability + swizzling.swift */; };
 		FAB104522B7F3B5400CF22CC /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104512B7F3B5400CF22CC /* MockURLProtocol.swift */; };
 		FAB104572B7F3DC200CF22CC /* ServiceClientStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104562B7F3DC200CF22CC /* ServiceClientStubs.swift */; };
@@ -58,6 +57,7 @@
 		FAB104602B7F403C00CF22CC /* ServiceClientTestsUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1045F2B7F403C00CF22CC /* ServiceClientTestsUser.swift */; };
 		FAB104632B7F48C100CF22CC /* ArticleRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104622B7F48C100CF22CC /* ArticleRepositoryTests.swift */; };
 		FAB104662B7F6E3C00CF22CC /* ArticleRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104652B7F6E3C00CF22CC /* ArticleRemoteDataSourceTests.swift */; };
+		FAB104692B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB104682B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +128,6 @@
 		FA71970E2B7D40F700BF8DA9 /* EnvironmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentManager.swift; sourceTree = "<group>"; };
 		FA7197112B7D440900BF8DA9 /* EndpointPathResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointPathResolver.swift; sourceTree = "<group>"; };
 		FA7197142B7D4AAD00BF8DA9 /* BaseURLResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURLResolver.swift; sourceTree = "<group>"; };
-		FA7197172B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
 		FAB1044F2B7F3B0C00CF22CC /* Reachability + swizzling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reachability + swizzling.swift"; sourceTree = "<group>"; };
 		FAB104512B7F3B5400CF22CC /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		FAB104562B7F3DC200CF22CC /* ServiceClientStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientStubs.swift; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		FAB1045F2B7F403C00CF22CC /* ServiceClientTestsUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClientTestsUser.swift; sourceTree = "<group>"; };
 		FAB104622B7F48C100CF22CC /* ArticleRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepositoryTests.swift; sourceTree = "<group>"; };
 		FAB104652B7F6E3C00CF22CC /* ArticleRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRemoteDataSourceTests.swift; sourceTree = "<group>"; };
+		FAB104682B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticlesMetaDataUseCaseTests.swift; sourceTree = "<group>"; };
 		FF8AA18D31182E1E88F93E0D /* libPods-NYTimesArticles-NYTimesArticlesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NYTimesArticles-NYTimesArticlesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -353,6 +353,7 @@
 		FA7196B12B7CFB5F00BF8DA9 /* NYTimesArticlesTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAB104672B7F7C0A00CF22CC /* GetArticlesMetaDataUseCaseTests */,
 				FAB104642B7F6E0E00CF22CC /* ArticleRemoteDataSourceTests */,
 				FAB104612B7F489B00CF22CC /* ArticleRepositoryTests */,
 				FAB104532B7F3B8C00CF22CC /* ServiceClientTests */,
@@ -396,7 +397,6 @@
 			children = (
 				FA0C79542B7E341A009BC966 /* Reachibility */,
 				FA0C79532B7E341A009BC966 /* Utility */,
-				FA7197162B7D4D7600BF8DA9 /* DependencyInjection */,
 				FA7197012B7D36BF00BF8DA9 /* AppError */,
 				FA7196E82B7D104600BF8DA9 /* Bind */,
 			);
@@ -607,14 +607,6 @@
 			path = URLResolver;
 			sourceTree = "<group>";
 		};
-		FA7197162B7D4D7600BF8DA9 /* DependencyInjection */ = {
-			isa = PBXGroup;
-			children = (
-				FA7197172B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift */,
-			);
-			path = DependencyInjection;
-			sourceTree = "<group>";
-		};
 		FAB1044E2B7F3AF900CF22CC /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +666,14 @@
 				FAB104652B7F6E3C00CF22CC /* ArticleRemoteDataSourceTests.swift */,
 			);
 			path = ArticleRemoteDataSourceTests;
+			sourceTree = "<group>";
+		};
+		FAB104672B7F7C0A00CF22CC /* GetArticlesMetaDataUseCaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB104682B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift */,
+			);
+			path = GetArticlesMetaDataUseCaseTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -905,7 +905,6 @@
 				FA7197052B7D3A0E00BF8DA9 /* ArticleRemoteDataSource.swift in Sources */,
 				FA7196DE2B7D092200BF8DA9 /* ServiceManager.swift in Sources */,
 				FA7197092B7D3F0F00BF8DA9 /* ArticlesMetaDataRequestDescriptor.swift in Sources */,
-				FA7197182B7D4EA500BF8DA9 /* DependencyInjectionContainer.swift in Sources */,
 				FA0C796B2B7E4C46009BC966 /* ArticleDetailViewController.swift in Sources */,
 				FA7196D42B7CFFBB00BF8DA9 /* RequestDescriptor.swift in Sources */,
 				FA0C79582B7E3431009BC966 /* Utility.swift in Sources */,
@@ -922,6 +921,7 @@
 				FAB104632B7F48C100CF22CC /* ArticleRepositoryTests.swift in Sources */,
 				FAB1045C2B7F3E8400CF22CC /* ServiceClientTests.swift in Sources */,
 				FAB104602B7F403C00CF22CC /* ServiceClientTestsUser.swift in Sources */,
+				FAB104692B7F7C2400CF22CC /* GetArticlesMetaDataUseCaseTests.swift in Sources */,
 				FAB1045E2B7F3F4C00CF22CC /* RequestDescriptorWithSuccessState.swift in Sources */,
 				FAB104572B7F3DC200CF22CC /* ServiceClientStubs.swift in Sources */,
 				FAB104522B7F3B5400CF22CC /* MockURLProtocol.swift in Sources */,

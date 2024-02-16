@@ -12,7 +12,7 @@ internal protocol GetArticlesMetaDataUseCaseContractor {
     func getArticleList(completion: @escaping (Result<ArticlesMetaData, ServiceError>) -> Void)
 }
 
-internal final class GetArticlesMetaData: GetArticlesMetaDataUseCaseContractor {
+internal final class GetArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor {
 
     private let repository: ArticleRepositoryContractor
 
