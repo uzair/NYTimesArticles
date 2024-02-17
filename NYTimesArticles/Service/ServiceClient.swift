@@ -87,7 +87,6 @@ private extension ServiceClient {
             completion(.success(decodedObject))
         }
         catch let error {
-            print(error)
             completion(.failure(ServiceError.requestFailed(error.localizedDescription)))
         }
     }

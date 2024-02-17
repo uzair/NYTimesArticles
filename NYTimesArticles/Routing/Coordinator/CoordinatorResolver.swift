@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-internal protocol CoordinatorResolverContractor {
+protocol CoordinatorResolverContractor {
     
     var navigationController: UINavigationController? { get set }
     func articleListCoordinator() -> Coordinator?

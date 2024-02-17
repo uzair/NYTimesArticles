@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		283FDBAE1876B771817973FA /* libPods-NYTimesArticles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F856374C9BABB94D042E597 /* libPods-NYTimesArticles.a */; };
 		8033C423616329D9ABA6BA8D /* libPods-NYTimesArticlesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC9BEC347B1275A26AEF834 /* libPods-NYTimesArticlesTests.a */; };
-		818D099A2F27DCF5ADCB6885 /* libPods-NYTimesArticles-NYTimesArticlesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E88CE7CEDA26D722291297A1 /* libPods-NYTimesArticles-NYTimesArticlesUITests.a */; };
 		FA0C79562B7E341A009BC966 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C79552B7E341A009BC966 /* Reachability.swift */; };
 		FA0C79582B7E3431009BC966 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C79572B7E3431009BC966 /* Utility.swift */; };
 		FA0C795C2B7E3D0C009BC966 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C795B2B7E3D0C009BC966 /* Coordinator.swift */; };
@@ -166,7 +165,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				818D099A2F27DCF5ADCB6885 /* libPods-NYTimesArticles-NYTimesArticlesUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,7 +774,6 @@
 					};
 					FA7196B72B7CFB5F00BF8DA9 = {
 						CreatedOnToolsVersion = 15.2;
-						TestTargetID = FA7196972B7CFB5D00BF8DA9;
 					};
 				};
 			};
@@ -1218,10 +1215,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aviroc.nytimesarticles.NYTimesArticlesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NYTimesArticles;
 			};
 			name = Debug;
 		};
@@ -1236,10 +1233,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aviroc.nytimesarticles.NYTimesArticlesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NYTimesArticles;
 			};
 			name = Release;
 		};
