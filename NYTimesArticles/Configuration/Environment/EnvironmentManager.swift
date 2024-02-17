@@ -12,13 +12,13 @@ public enum Environment: Int {
     case production
 }
 
-internal protocol EnvironmentManagerContractor {
+protocol EnvironmentManagerContractor {
     func getEnvironment() -> Environment
     func enableSandboxEnvironment()
     func enableProductionEnvironment()
 }
 
-internal final class EnvironmentManager: EnvironmentManagerContractor {
+final class EnvironmentManager: EnvironmentManagerContractor {
 
     private var environment: Environment = .sandbox
 

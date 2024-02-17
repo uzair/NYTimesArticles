@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum ArticleListViewState: Equatable {
+enum ArticleListViewState: Equatable {
     case idle
     case loading
     case listingArticles(ArticleListDisplayItem)
@@ -40,7 +40,7 @@ protocol ArticleListViewModelMapperInterface {
     func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem
 }
 
-internal final class ArticleListViewModel: ArticleListViewModelContractor {
+final class ArticleListViewModel: ArticleListViewModelContractor {
     
     private let getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor
     private var articlesMetaData: ArticlesMetaData?

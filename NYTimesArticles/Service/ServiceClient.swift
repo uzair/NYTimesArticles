@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-internal protocol ServiceClientContractor {
+protocol ServiceClientContractor {
 
     func performRequest<T: Decodable>(descriptor: RequestDescriptor, completion: @escaping (Result<T, ServiceError>) -> Void)
 }
 
-internal final class ServiceClient: NSObject, ServiceClientContractor, URLSessionTaskDelegate, URLSessionDelegate, URLSessionDataDelegate {
+final class ServiceClient: NSObject, ServiceClientContractor, URLSessionTaskDelegate, URLSessionDelegate, URLSessionDataDelegate {
     
     private let urlSession: URLSession
     

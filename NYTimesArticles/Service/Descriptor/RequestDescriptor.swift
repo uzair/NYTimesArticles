@@ -7,23 +7,23 @@
 
 import Foundation
 
-internal enum HTTPMethod: String {
+enum HTTPMethod: String {
     case get     = "GET"
     case post    = "POST"
     case put     = "PUT"
     case delete  = "DELETE"
 }
 
-internal typealias Parameters = [String: Any]
-internal typealias HTTPHeaders = [String: String]
+typealias Parameters = [String: Any]
+typealias HTTPHeaders = [String: String]
 
 let consentType = "Content-Type"
 
-internal protocol ParameterEncoding {
+protocol ParameterEncoding {
     func encode(_ urlRequest: URLRequest, with parameters: Parameters?) throws -> URLRequest
 }
 
-internal final class JsonEncoding: ParameterEncoding {
+final class JsonEncoding: ParameterEncoding {
     
     public static var defaultEncoding: JsonEncoding { return JsonEncoding() }
     

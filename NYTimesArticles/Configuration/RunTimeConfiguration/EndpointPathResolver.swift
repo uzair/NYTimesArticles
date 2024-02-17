@@ -19,7 +19,7 @@ enum APIKey: String {
     case productionKey = "MR95vSebKsGdvB7uIfBDxCSex3GtLev"
 }
 
-internal class EndpointPathResolver {
+final class EndpointPathResolver {
     
     enum EndPointPath: String {
         case articlesMetadata = "/mostpopular/"

@@ -7,12 +7,12 @@
 
 import Foundation
 
-internal protocol ServiceManagerContractor {
+ protocol ServiceManagerContractor {
     
     func performRequest<T: Decodable>(desriptor: RequestDescriptor, completion: @escaping (Result<T, ServiceError>) -> Void)
 }
 
-internal final class ServiceManager: ServiceManagerContractor {
+ final class ServiceManager: ServiceManagerContractor {
     
     private var serviceClient: ServiceClientContractor
     

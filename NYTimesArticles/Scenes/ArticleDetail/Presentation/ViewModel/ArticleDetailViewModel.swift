@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum ArticleDetailViewState: Equatable {
+enum ArticleDetailViewState: Equatable {
     case idle
     case loadingUrl(String?)
     
@@ -28,9 +28,8 @@ protocol ArticleDetailViewModelContractor {
     func onViewLoad()
 }
 
-internal final class ArticleDetailViewModel: ArticleDetailViewModelContractor {
+final class ArticleDetailViewModel: ArticleDetailViewModelContractor {
     var viewState: Bind<ArticleDetailViewState> = Bind(.idle)
-    
     var coordinator: Coordinator?
     var articleUrl: String?
     
@@ -42,6 +41,5 @@ internal final class ArticleDetailViewModel: ArticleDetailViewModelContractor {
     func onViewLoad() {
         self.viewState.value = .loadingUrl(self.articleUrl)
     }
-    
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal final class ArticlesMetaDataRequestDescriptor: RequestDescriptor {
+final class ArticlesMetaDataRequestDescriptor: RequestDescriptor {
 
     private let environment: Environment
 

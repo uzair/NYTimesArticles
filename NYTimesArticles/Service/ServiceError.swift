@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum ServiceError: Error, Equatable  {
+ enum ServiceError: Error, Equatable  {
     case parameterEncodingFailed
     case requestFailed(String?)
     case internetNotAvailable

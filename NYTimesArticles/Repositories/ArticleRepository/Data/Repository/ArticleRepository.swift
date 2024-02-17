@@ -7,14 +7,13 @@
 
 import Foundation
 
-internal protocol ArticleRepositoryContractor {
+protocol ArticleRepositoryContractor {
     func getArticlesMetaData(completion: @escaping (Result<ArticlesMetaData, ServiceError>) -> Void)
 }
 
-internal final class ArticleRepository: ArticleRepositoryContractor {
+final class ArticleRepository: ArticleRepositoryContractor {
 
     private let datasource: ArticleRemoteDataSourceContractor
-    
     init(datasource: ArticleRemoteDataSourceContractor = ArticleRemoteDataSource()) {
         self.datasource = datasource
     }
@@ -23,5 +22,4 @@ internal final class ArticleRepository: ArticleRepositoryContractor {
         datasource.getArticlesMetaData(completion: completion)
     }
     
-   
 }

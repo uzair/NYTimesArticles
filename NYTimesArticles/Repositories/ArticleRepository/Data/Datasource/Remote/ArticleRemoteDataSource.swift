@@ -7,20 +7,16 @@
 
 import Foundation
 
-internal protocol ArticleRemoteDataSourceContractor {
-
+protocol ArticleRemoteDataSourceContractor {
     func getArticlesMetaData(completion: @escaping (Result<ArticlesMetaData, ServiceError>) -> Void)
-    
 }
 
-internal final class ArticleRemoteDataSource: ArticleRemoteDataSourceContractor {
+final class ArticleRemoteDataSource: ArticleRemoteDataSourceContractor {
 
     private let serviceManager: ServiceManagerContractor
-
     init(serviceManager: ServiceManagerContractor = ServiceManager()) {
         self.serviceManager = serviceManager
     }
-    
        
     func getArticlesMetaData(completion: @escaping (Result<ArticlesMetaData, ServiceError>) -> Void) {
         
@@ -28,6 +24,5 @@ internal final class ArticleRemoteDataSource: ArticleRemoteDataSourceContractor 
         serviceManager.performRequest(desriptor: descriptor, completion: completion)
 
     }
-    
     
 }

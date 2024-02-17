@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal class BaseURLResolver {
+final class BaseURLResolver {
     
     struct BaseUrl {
         static let sandbox = "https://api.nytimes.com/svc"
