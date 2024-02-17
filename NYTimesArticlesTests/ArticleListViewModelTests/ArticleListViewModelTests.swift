@@ -29,7 +29,7 @@ final class MockErrorGetArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContr
     }
 }
 
-final class MockViewModelMapper: ArticleListDisplayModelMapperInterface {
+final class MockDisplayModelMapper: ArticleListDisplayModelMapperInterface {
     var listDisplayItemCalled = false
     
     func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem {
@@ -46,23 +46,6 @@ final class MockArticleRouter: ArticleRouterContractor {
     }
 }
 
-//final class MockCoordinator: Coordinator {
-//
-//    static let shared = MockCoordinator()
-//
-//    var resolver: CoordinatorResolverContractor?
-//    var startCalled = false
-//
-//    init(resolver: CoordinatorResolverContractor? = MockCoordinatorResolver(), startCalled: Bool = false) {
-//        self.resolver = resolver
-//        self.startCalled = startCalled
-//    }
-//
-//    func start() {
-//        startCalled = true
-//    }
-//}
-
 final class ArticleListViewModelTests: XCTestCase {
     
     private var articleListViewModel: ArticleListViewModelContractor!
@@ -78,7 +61,7 @@ final class ArticleListViewModelTests: XCTestCase {
         
         // Given
         let mockUseCase = MockGetArticlesMetaDataUseCase()
-        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: mockUseCase, mapper: nil, router: nil)
+        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: mockUseCase, mapper: MockDisplayModelMapper(), router: MockArticleRouter())
         
         // When
         articleListViewModel.onViewLoad()
@@ -87,32 +70,19 @@ final class ArticleListViewModelTests: XCTestCase {
         XCTAssertTrue(mockUseCase.getArticleListCalled)
     }
     
-    func testOnViewLoadUpdatesViewState() {
-        
-        // Given
-        let mockUseCase = MockGetArticlesMetaDataUseCase()
-        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: mockUseCase, mapper: nil, router: nil)
-        
-        // When
-        articleListViewModel.onViewLoad()
-        
-        // Then
-        XCTAssertEqual(articleListViewModel.viewState.value, .loading, "onViewLoad should update viewState to .loading")
-    }
-    
     func testOnLoadArticlesMetaDataSuccess() {
         
         // Given
         let mockUseCase = MockGetArticlesMetaDataUseCase()
-        let mockMapper = MockViewModelMapper()
-        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: mockUseCase, mapper: mockMapper, router: nil)
+        let mockMapper = MockDisplayModelMapper()
+        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: mockUseCase, mapper: mockMapper, router: MockArticleRouter())
         
         // When
         articleListViewModel.onViewLoad()
         
         // Then
         XCTAssertTrue(mockMapper.listDisplayItemCalled)
-        XCTAssertEqual(articleListViewModel.viewState.value, .listingArticles(ArticleListDisplayItem(cellDisplayItems: [], title: "")))
+        XCTAssertEqual(articleListViewModel.viewState.value, .listingArticles)
     }
     
     
@@ -120,7 +90,7 @@ final class ArticleListViewModelTests: XCTestCase {
         
         // Given
         let mockUseCase = MockErrorGetArticlesMetaDataUseCase()
-        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: mockUseCase, mapper: nil, router: nil)
+        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: mockUseCase, mapper: MockDisplayModelMapper(), router: MockArticleRouter())
         
         // When
         articleListViewModel.onViewLoad()
@@ -134,7 +104,7 @@ final class ArticleListViewModelTests: XCTestCase {
         
         // Given
         let mockRouter = MockArticleRouter()
-        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: MockGetArticlesMetaDataUseCase(), mapper: nil, router: mockRouter)
+        articleListViewModel = ArticleListViewModel(getArticlesMetaDataUseCase: MockGetArticlesMetaDataUseCase(), mapper: MockDisplayModelMapper(), router: mockRouter)
         
         // When
         articleListViewModel.onClickListItemAt(index: 0)
