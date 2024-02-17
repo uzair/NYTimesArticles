@@ -9,18 +9,17 @@ import UIKit
 
 class ArticleListViewController: UIViewController {
     
-    private let viewModel: ArticleListViewModelContractor?
-    private var listDisplayItem: ArticleListDisplayItem?
+    private let viewModel: ArticleListViewModelContractor
     @IBOutlet private weak var tableView: UITableView!
     
     init(viewModel: ArticleListViewModelContractor) {
-          self.viewModel = viewModel
-          super.init(nibName: "ArticleListViewController", bundle: nil)
-      }
-
-      required init?(coder: NSCoder) {
-          fatalError("init(coder:) has not been implemented")
-      }
+        self.viewModel = viewModel
+        super.init(nibName: "ArticleListViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,7 @@ class ArticleListViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupTableView()
         bindViewModel()
-        viewModel?.onViewLoad()
+        viewModel.onViewLoad()
     }
     
     private func setupTableView() {
@@ -42,7 +41,7 @@ class ArticleListViewController: UIViewController {
     
     
     private func bindViewModel() {
-        viewModel?.viewState.bind(listener: { [weak self] (viewState) in
+        viewModel.viewState.bind(listener: { [weak self] (viewState) in
             self?.onViewStateChange(newState: viewState)
         })
     }
@@ -54,9 +53,8 @@ class ArticleListViewController: UIViewController {
             return
         case .loading:
             Utility.addActivityIndicator(toView: self.view)
-        case .listingArticles(let articleListDisplayItem):
-            self.listDisplayItem = articleListDisplayItem
-            self.title = articleListDisplayItem.title
+        case .listingArticles:
+            self.title = self.viewModel.listDisplayItem?.title
             self.tableView.reloadData()
             
         case .error(let string):
@@ -65,7 +63,6 @@ class ArticleListViewController: UIViewController {
     }
 }
 
-
 extension ArticleListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,13 +70,13 @@ extension ArticleListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.listDisplayItem?.cellDisplayItems?.count ?? 0
+        self.viewModel.listDisplayItem?.cellDisplayItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell,
-              let cellDisplayItem = self.listDisplayItem?.cellDisplayItems?[indexPath.row]  else {
+              let cellDisplayItem = self.viewModel.listDisplayItem?.cellDisplayItems?[indexPath.row]  else {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
@@ -87,9 +84,7 @@ extension ArticleListViewController: UITableViewDataSource {
         cell.apply(model: cellDisplayItem)
         return cell
     }
-    
 }
-
 
 extension ArticleListViewController: UITableViewDelegate {
     
@@ -98,8 +93,6 @@ extension ArticleListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel?.onClickListItemAt(index: indexPath.row)
-        
+        self.viewModel.onClickListItemAt(index: indexPath.row)
     }
-    
 }

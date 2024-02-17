@@ -10,15 +10,12 @@ import Foundation
 enum ArticleListViewState: Equatable {
     case idle
     case loading
-    case listingArticles(ArticleListDisplayItem)
+    case listingArticles
     case error(ServiceError)
     
     static func == (lhs: ArticleListViewState, rhs: ArticleListViewState) -> Bool {
         switch (lhs, rhs) {
-        case (.idle, .idle), (.loading, .loading):
-            return true
-            
-        case (.listingArticles(_), .listingArticles(_)):
+        case (.idle, .idle), (.loading, .loading), (.listingArticles, .listingArticles):
             return true
             
         case (.error(_), .error(_)):
@@ -32,6 +29,7 @@ enum ArticleListViewState: Equatable {
 
 protocol ArticleListViewModelContractor {
     var viewState: Bind<ArticleListViewState> { get }
+    var listDisplayItem: ArticleListDisplayItem? { get set }
     func onViewLoad()
     func onClickListItemAt(index: Int)
 }
@@ -47,6 +45,7 @@ final class ArticleListViewModel: ArticleListViewModelContractor {
     private var router: ArticleRouterContractor?
     private var mapper: ArticleListDisplayModelMapperInterface?
     var viewState: Bind<ArticleListViewState> = Bind(.idle)
+    var listDisplayItem: ArticleListDisplayItem? = nil
     
     init(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor,
          mapper: ArticleListDisplayModelMapperInterface?, router: ArticleRouterContractor?) {
@@ -76,7 +75,8 @@ private extension ArticleListViewModel {
             case .success(let articlesMetaData):
                 self?.articlesMetaData = articlesMetaData
                 if let mapper = self?.mapper {
-                    self?.viewState.value = .listingArticles(mapper.listDisplayItem(articlesMetaData: articlesMetaData))
+                    self?.listDisplayItem = mapper.listDisplayItem(articlesMetaData: articlesMetaData)
+                    self?.viewState.value = .listingArticles
                 }
                 return
             case .failure(let error):
