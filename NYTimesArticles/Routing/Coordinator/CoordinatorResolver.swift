@@ -10,15 +10,16 @@ import UIKit
 
 internal protocol CoordinatorResolverContractor {
     
+    var navigationController: UINavigationController? { get set }
     func articleListCoordinator() -> Coordinator?
     func articleDetailCoordinator(urlString: String?) -> Coordinator?
 }
 
 final class CoordinatorResolver: CoordinatorResolverContractor {
     
-     let navigationController: UINavigationController
+     var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     

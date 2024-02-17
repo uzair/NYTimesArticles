@@ -8,7 +8,7 @@
 import UIKit
 
 protocol Coordinator {
-    var resolver: CoordinatorResolver? { get set }
+    var resolver: CoordinatorResolverContractor? { get set }
     func start()
 }
 

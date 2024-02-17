@@ -9,7 +9,7 @@ import Foundation
 
 class ArticleDetailCoordinator: Coordinator {
 
-    var resolver: CoordinatorResolver?
+    var resolver: CoordinatorResolverContractor?
     var articleDetailUrl: String?
     
     init(articleDetailUrl: String?) {
@@ -22,7 +22,7 @@ class ArticleDetailCoordinator: Coordinator {
         
         let viewController = ArticleDetailViewController(viewModel: viewModel)
         
-        self.resolver?.navigationController.pushViewController(viewController, animated: true)
+        self.resolver?.navigationController?.pushViewController(viewController, animated: true)
         
 
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class ArticleListCoordinator: Coordinator {
 
-    var resolver: CoordinatorResolver?
+    var resolver: CoordinatorResolverContractor?
     
     init() {
      }
@@ -20,7 +20,7 @@ class ArticleListCoordinator: Coordinator {
         
         let viewController = ArticleListViewController(viewModel: viewModel)
         
-        self.resolver?.navigationController.pushViewController(viewController, animated: true)
+        self.resolver?.navigationController?.pushViewController(viewController, animated: true)
         
 
     }

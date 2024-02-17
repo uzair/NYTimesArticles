@@ -7,11 +7,27 @@
 
 import Foundation
 
-internal enum ArticleListViewState {
+internal enum ArticleListViewState: Equatable {
     case idle
     case loading
     case listingArticles(ArticleListDisplayItem)
     case error(ServiceError)
+    
+    static func == (lhs: ArticleListViewState, rhs: ArticleListViewState) -> Bool {
+          switch (lhs, rhs) {
+          case (.idle, .idle), (.loading, .loading):
+              return true
+
+          case let (.listingArticles(item1), .listingArticles(item2)):
+              return true
+
+          case let (.error(error1), .error(error2)):
+              return true
+
+          default:
+              return false
+          }
+      }
 }
 
 protocol ArticleListViewModelContractor {
