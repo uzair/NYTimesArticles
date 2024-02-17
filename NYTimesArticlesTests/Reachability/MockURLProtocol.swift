@@ -41,15 +41,12 @@ class MockURLProtocol: URLProtocol {
                 client?.urlProtocol(self, didFailWithError: error)
             }
             
-            
-            
         } catch {
             client?.urlProtocol(self, didFailWithError: error)
         }
     }
     
     override func stopLoading() {
-        
         //Because it's a test class and no implementation is needed.
     }
 }

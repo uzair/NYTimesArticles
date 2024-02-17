@@ -43,9 +43,10 @@ final class GetArticlesMetaDataUseCaseTests: XCTestCase {
             return (HTTPURLResponse(), mockData, nil)
             
         }
-        
+        // When
         getArticlesMetaDataUseCase.getArticleList { (cResult: Result<ArticlesMetaData, ServiceError>) in
             
+            // Then
             switch cResult {
             case .success(let response):
                 XCTAssertNotNil(response)
@@ -81,8 +82,10 @@ final class GetArticlesMetaDataUseCaseTests: XCTestCase {
             
         }
         
+        // When
         getArticlesMetaDataUseCase.getArticleList { (cResult: Result<ArticlesMetaData, ServiceError>) in
             
+            // Then
             switch cResult {
             case .success(let response):
                 XCTFail()

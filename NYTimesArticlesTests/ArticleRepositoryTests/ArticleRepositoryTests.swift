@@ -47,13 +47,14 @@ final class ArticleRepositoryTests: XCTestCase {
             
         }
         
+        // When
         articleRepo.getArticlesMetaData { (cResult: Result<ArticlesMetaData, ServiceError>) in
-            
+            // Then
             switch cResult {
             case .success(let response):
                 XCTAssertNotNil(response)
                 expectation.fulfill()
-            case .failure(let failure):
+            case .failure(_):
                 XCTFail()
             }
             
@@ -87,10 +88,12 @@ final class ArticleRepositoryTests: XCTestCase {
             
         }
         
+        // When
         articleRepo.getArticlesMetaData { (cResult: Result<ArticlesMetaData, ServiceError>) in
             
+            // Then
             switch cResult {
-            case .success(let response):
+            case .success(_):
                 XCTFail()
                 expectation.fulfill()
             case .failure(let error):

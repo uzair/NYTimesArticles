@@ -42,8 +42,9 @@ final class ArticleRemoteDataSourceTests: XCTestCase {
             
         }
         
+        // When
         articleRemoteDataSource.getArticlesMetaData { (cResult: Result<ArticlesMetaData, ServiceError>) in
-            
+            // Then
             switch cResult {
             case .success(let response):
                 XCTAssertNotNil(response)
@@ -77,11 +78,12 @@ final class ArticleRemoteDataSourceTests: XCTestCase {
             return (HTTPURLResponse(), nil, ServiceError.requestFailed(nil))
             
         }
-        
+        // When
         articleRemoteDataSource.getArticlesMetaData { (cResult: Result<ArticlesMetaData, ServiceError>) in
             
+            // Then
             switch cResult {
-            case .success(let response):
+            case .success(_):
                 XCTFail()
                 expectation.fulfill()
             case .failure(let error):
