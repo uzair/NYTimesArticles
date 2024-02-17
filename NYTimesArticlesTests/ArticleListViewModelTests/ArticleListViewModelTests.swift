@@ -29,7 +29,7 @@ final class MockErrorGetArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContr
     }
 }
 
-final class MockViewModelMapper: ArticleListViewModelMapperInterface {
+final class MockViewModelMapper: ArticleListDisplayModelMapperInterface {
     var listDisplayItemCalled = false
     
     func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem {

@@ -36,7 +36,7 @@ protocol ArticleListViewModelContractor {
     func onClickListItemAt(index: Int)
 }
 
-protocol ArticleListViewModelMapperInterface {
+protocol ArticleListDisplayModelMapperInterface {
     func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem
 }
 
@@ -45,11 +45,11 @@ final class ArticleListViewModel: ArticleListViewModelContractor {
     private let getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor
     private var articlesMetaData: ArticlesMetaData?
     private var router: ArticleRouterContractor?
-    private var mapper: ArticleListViewModelMapperInterface?
+    private var mapper: ArticleListDisplayModelMapperInterface?
     var viewState: Bind<ArticleListViewState> = Bind(.idle)
     
     init(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor,
-         mapper: ArticleListViewModelMapperInterface?, router: ArticleRouterContractor?) {
+         mapper: ArticleListDisplayModelMapperInterface?, router: ArticleRouterContractor?) {
         
         self.getArticlesMetaDataUseCase  = getArticlesMetaDataUseCase
         self.mapper = mapper

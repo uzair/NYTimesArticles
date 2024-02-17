@@ -20,7 +20,7 @@ class ArticleListCoordinator: Coordinator {
 
     func start() {
         
-        let viewModel = ArticleListViewModel(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCase(), mapper: ArticleListViewModelMapper(), router: self)
+        let viewModel = ArticleListViewModel(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCase(), mapper: ArticleListDisplayModelMapper(), router: self)
         let viewController = ArticleListViewController(viewModel: viewModel)
         self.navigationController.pushViewController(viewController, animated: true)
         
