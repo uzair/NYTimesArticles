@@ -41,14 +41,14 @@ protocol ArticleListDisplayModelMapperInterface {
 final class ArticleListViewModel: ArticleListViewModelContractor {
     
     private let getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor
+    private let mapper: ArticleListDisplayModelMapperInterface
+    private let router: ArticleRouterContractor
     private var articlesMetaData: ArticlesMetaData?
-    private var router: ArticleRouterContractor?
-    private var mapper: ArticleListDisplayModelMapperInterface?
     var viewState: Bind<ArticleListViewState> = Bind(.idle)
     var listDisplayItem: ArticleListDisplayItem? = nil
     
     init(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor,
-         mapper: ArticleListDisplayModelMapperInterface?, router: ArticleRouterContractor?) {
+         mapper: ArticleListDisplayModelMapperInterface, router: ArticleRouterContractor) {
         
         self.getArticlesMetaDataUseCase  = getArticlesMetaDataUseCase
         self.mapper = mapper
@@ -62,7 +62,7 @@ final class ArticleListViewModel: ArticleListViewModelContractor {
     
     func onClickListItemAt(index: Int) {
         let urlString = self.articlesMetaData?.results?[index].url
-        router?.showDetail(articleDetailUrl: urlString)
+        router.showDetail(articleDetailUrl: urlString)
     }
 }
 
