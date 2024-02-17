@@ -1,0 +1,17 @@
+# Xcode
+.DS_Store
+DerivedData/
+build/
+*.pbxuser
+!default.pbxuser
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+
+# Swift
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM/
+*.swiftpm/
+*.xctest/
