@@ -5,25 +5,21 @@
 //  Created by Macbook on 16/02/2024.
 //
 
-import Foundation
+import UIKit
 
 class ArticleDetailCoordinator: Coordinator {
-
-    var resolver: CoordinatorResolverContractor?
-    var articleDetailUrl: String?
     
-    init(articleDetailUrl: String?) {
+    var articleDetailUrl: String?
+    var navigationController: UINavigationController
+    
+    init(articleDetailUrl: String?, navigationController: UINavigationController) {
         self.articleDetailUrl = articleDetailUrl
-     }
-
+        self.navigationController = navigationController
+    }
+    
     func start() {
-
         let viewModel = ArticleDetailViewModel(articleUrl: self.articleDetailUrl, coordinator: self)
-        
         let viewController = ArticleDetailViewController(viewModel: viewModel)
-        
-        self.resolver?.navigationController?.pushViewController(viewController, animated: true)
-        
-
+        self.navigationController.pushViewController(viewController, animated: true)
     }
 }

@@ -7,21 +7,31 @@
 
 import UIKit
 
-class ArticleListCoordinator: Coordinator {
+protocol ArticleRouterContractor {
+    func showDetail(articleDetailUrl: String?)
+}
 
-    var resolver: CoordinatorResolverContractor?
+class ArticleListCoordinator: Coordinator {
     
-    init() {
-     }
+    var navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
 
     func start() {
         
-        let viewModel = ArticleListViewModel(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCase(), mapper: ArticleListViewModelMapper(), coordinator: self)
-        
+        let viewModel = ArticleListViewModel(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCase(), mapper: ArticleListViewModelMapper(), router: self)
         let viewController = ArticleListViewController(viewModel: viewModel)
+        self.navigationController.pushViewController(viewController, animated: true)
         
-        self.resolver?.navigationController?.pushViewController(viewController, animated: true)
-        
+    }
+}
 
+extension ArticleListCoordinator: ArticleRouterContractor {
+    
+    func showDetail(articleDetailUrl: String?) {
+        let articleDetailCoordinator = ArticleDetailCoordinator(articleDetailUrl: articleDetailUrl, navigationController: self.navigationController)
+        articleDetailCoordinator.start()
+        
     }
 }

@@ -15,7 +15,6 @@ class ArticleCellDisplayItem {
     var thumbnail: String?
     
     init(article: Article) {
-        
         self.title = article.title
         self.author = article.byline
         self.publishDate = article.published_date

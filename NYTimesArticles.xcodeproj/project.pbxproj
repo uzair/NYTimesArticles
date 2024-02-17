@@ -16,7 +16,6 @@
 		FA0C796B2B7E4C46009BC966 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C79692B7E4C46009BC966 /* ArticleDetailViewController.swift */; };
 		FA0C796C2B7E4C46009BC966 /* ArticleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0C796A2B7E4C46009BC966 /* ArticleDetailViewController.xib */; };
 		FA0C796E2B7E4EB9009BC966 /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C796D2B7E4EB9009BC966 /* ArticleDetailViewModel.swift */; };
-		FA0C79702B7E55C6009BC966 /* CoordinatorResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C796F2B7E55C6009BC966 /* CoordinatorResolver.swift */; };
 		FA2CAD542B807970007A7835 /* ArticleListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CAD532B807970007A7835 /* ArticleListViewModelTests.swift */; };
 		FA2CAD582B80A648007A7835 /* ArticleDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CAD572B80A648007A7835 /* ArticleDetailViewModelTests.swift */; };
 		FA4CD1F02B7DD9BA0018042D /* ArticleListViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CD1EF2B7DD9BA0018042D /* ArticleListViewModelMapper.swift */; };
@@ -88,7 +87,6 @@
 		FA0C79692B7E4C46009BC966 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		FA0C796A2B7E4C46009BC966 /* ArticleDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailViewController.xib; sourceTree = "<group>"; };
 		FA0C796D2B7E4EB9009BC966 /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
-		FA0C796F2B7E55C6009BC966 /* CoordinatorResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorResolver.swift; sourceTree = "<group>"; };
 		FA2CAD532B807970007A7835 /* ArticleListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelTests.swift; sourceTree = "<group>"; };
 		FA2CAD572B80A648007A7835 /* ArticleDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModelTests.swift; sourceTree = "<group>"; };
 		FA4CD1EF2B7DD9BA0018042D /* ArticleListViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelMapper.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				FA0C795B2B7E3D0C009BC966 /* Coordinator.swift */,
-				FA0C796F2B7E55C6009BC966 /* CoordinatorResolver.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -207,25 +204,9 @@
 		FA0C79612B7E4C12009BC966 /* ArticleDetail */ = {
 			isa = PBXGroup;
 			children = (
-				FA0C79622B7E4C12009BC966 /* Domain */,
 				FA0C79642B7E4C12009BC966 /* Presentation */,
 			);
 			path = ArticleDetail;
-			sourceTree = "<group>";
-		};
-		FA0C79622B7E4C12009BC966 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				FA0C79632B7E4C12009BC966 /* UseCases */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		FA0C79632B7E4C12009BC966 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 		FA0C79642B7E4C12009BC966 /* Presentation */ = {
@@ -241,17 +222,9 @@
 		FA0C79652B7E4C12009BC966 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FA0C79662B7E4C12009BC966 /* DisplayItems */,
 				FA0C796D2B7E4EB9009BC966 /* ArticleDetailViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		FA0C79662B7E4C12009BC966 /* DisplayItems */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DisplayItems;
 			sourceTree = "<group>";
 		};
 		FA0C79672B7E4C12009BC966 /* UI */ = {
@@ -835,7 +808,6 @@
 				FA7196F92B7D23B500BF8DA9 /* GetArticlesMetaDataUseCase.swift in Sources */,
 				FA7197152B7D4AAD00BF8DA9 /* BaseURLResolver.swift in Sources */,
 				FA7196F72B7D13A400BF8DA9 /* ArticlesMetaData.swift in Sources */,
-				FA0C79702B7E55C6009BC966 /* CoordinatorResolver.swift in Sources */,
 				FA5E43D72B7FF022008CC2F0 /* ArticleDetailCoordinator.swift in Sources */,
 				FA4CD1F42B7DDB780018042D /* ArticleCellDisplayItem.swift in Sources */,
 				FA7196EA2B7D105200BF8DA9 /* Bind.swift in Sources */,

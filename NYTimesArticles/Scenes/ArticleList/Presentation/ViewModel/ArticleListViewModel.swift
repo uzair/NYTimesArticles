@@ -14,20 +14,20 @@ internal enum ArticleListViewState: Equatable {
     case error(ServiceError)
     
     static func == (lhs: ArticleListViewState, rhs: ArticleListViewState) -> Bool {
-          switch (lhs, rhs) {
-          case (.idle, .idle), (.loading, .loading):
-              return true
-
-          case let (.listingArticles(item1), .listingArticles(item2)):
-              return true
-
-          case let (.error(error1), .error(error2)):
-              return true
-
-          default:
-              return false
-          }
-      }
+        switch (lhs, rhs) {
+        case (.idle, .idle), (.loading, .loading):
+            return true
+            
+        case (.listingArticles(_), .listingArticles(_)):
+            return true
+            
+        case (.error(_), .error(_)):
+            return true
+            
+        default:
+            return false
+        }
+    }
 }
 
 protocol ArticleListViewModelContractor {
@@ -35,7 +35,6 @@ protocol ArticleListViewModelContractor {
     func onViewLoad()
     func onClickListItemAt(index: Int)
 }
-
 
 protocol ArticleListViewModelMapperInterface {
     func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem
@@ -45,18 +44,16 @@ internal final class ArticleListViewModel: ArticleListViewModelContractor {
     
     private let getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor
     private var articlesMetaData: ArticlesMetaData?
-    
     var mapper: ArticleListViewModelMapperInterface?
-    
     var viewState: Bind<ArticleListViewState> = Bind(.idle)
-    var coordinator: Coordinator?
+    var router: ArticleRouterContractor?
     
     init(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor,
-         mapper: ArticleListViewModelMapperInterface?, coordinator: Coordinator?) {
+         mapper: ArticleListViewModelMapperInterface?, router: ArticleRouterContractor?) {
         
         self.getArticlesMetaDataUseCase  = getArticlesMetaDataUseCase
         self.mapper = mapper
-        self.coordinator = coordinator
+        self.router = router
         
     }
     
@@ -65,19 +62,16 @@ internal final class ArticleListViewModel: ArticleListViewModelContractor {
     }
     
     func onClickListItemAt(index: Int) {
-        
         let urlString = self.articlesMetaData?.results?[index].url
-        let nextCoordinator = coordinator?.resolver?.articleDetailCoordinator(urlString: urlString)
-        nextCoordinator?.start()
+        router?.showDetail(articleDetailUrl: urlString)
     }
 }
 
 private extension ArticleListViewModel {
-    
     func onLoadArticlesMetaData() {
         viewState.value = .loading
         getArticlesMetaDataUseCase.getArticleList { [weak self] result in
-
+            
             switch result {
             case .success(let articlesMetaData):
                 self?.articlesMetaData = articlesMetaData
@@ -87,7 +81,7 @@ private extension ArticleListViewModel {
                 return
             case .failure(let error):
                 self?.viewState.value = .error(error)
-
+                
             }
         }
     }

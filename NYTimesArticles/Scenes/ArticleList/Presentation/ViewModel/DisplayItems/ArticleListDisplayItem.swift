@@ -13,10 +13,7 @@ class ArticleListDisplayItem {
     let title: String
     
     init (cellDisplayItems: [ArticleCellDisplayItem]?, title: String) {
-        
         self.cellDisplayItems = cellDisplayItems
         self.title = title
-
-                
     }
 }
