@@ -53,6 +53,7 @@ class ArticleDetailViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension ArticleDetailViewController: WKNavigationDelegate {

@@ -7,9 +7,20 @@
 
 import Foundation
 
-internal enum ArticleDetailViewState {
+internal enum ArticleDetailViewState: Equatable {
     case idle
     case loadingUrl(String?)
+    
+    static func == (lhs: ArticleDetailViewState, rhs: ArticleDetailViewState) -> Bool {
+         switch (lhs, rhs) {
+         case (.idle, .idle):
+             return true
+         case let (.loadingUrl(url1), .loadingUrl(url2)):
+             return url1 == url2
+         default:
+             return false
+         }
+     }
 }
 
 protocol ArticleDetailViewModelContractor {

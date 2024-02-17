@@ -72,22 +72,6 @@ final class MockCoordinator: Coordinator {
     }
 }
 
-//final class MockArticleListCoordinator: Coordinator {
-//    var resolver: CoordinatorResolver
-//    var startCalled: Bool
-//    
-//    init(resolver: CoordinatorResolver = CoordinatorResolver(), startCalled: Bool = false) {
-//        self.resolver = resolver
-//        self.startCalled = startCalled
-//    }
-//    
-//    func start() {
-//        startCalled = true
-//    }
-//}
-
-
-
 final class ArticleListViewModelTests: XCTestCase {
     
     private var articleListViewModel: ArticleListViewModelContractor!
