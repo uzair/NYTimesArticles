@@ -10,7 +10,6 @@ import Foundation
 final class ArticlesMetaDataRequestDescriptor: RequestDescriptor {
 
     private let environment: Environment
-
     init(environment: Environment = EnvironmentManager.sharedInstance.getEnvironment()) {
         self.environment = environment
     }

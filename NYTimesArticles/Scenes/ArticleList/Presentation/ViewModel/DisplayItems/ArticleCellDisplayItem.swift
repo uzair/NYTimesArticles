@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArticleCellDisplayItem {
+final class ArticleCellDisplayItem {
     
     let title: String?
     let author: String?

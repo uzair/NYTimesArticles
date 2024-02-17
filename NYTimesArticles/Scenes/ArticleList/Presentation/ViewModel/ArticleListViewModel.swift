@@ -44,9 +44,9 @@ final class ArticleListViewModel: ArticleListViewModelContractor {
     
     private let getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor
     private var articlesMetaData: ArticlesMetaData?
-    var mapper: ArticleListViewModelMapperInterface?
+    private var router: ArticleRouterContractor?
+    private var mapper: ArticleListViewModelMapperInterface?
     var viewState: Bind<ArticleListViewState> = Bind(.idle)
-    var router: ArticleRouterContractor?
     
     init(getArticlesMetaDataUseCase: GetArticlesMetaDataUseCaseContractor,
          mapper: ArticleListViewModelMapperInterface?, router: ArticleRouterContractor?) {

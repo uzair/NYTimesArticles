@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArticleListViewModelMapper: ArticleListViewModelMapperInterface {
+final class ArticleListViewModelMapper: ArticleListViewModelMapperInterface {
     
     func listDisplayItem(articlesMetaData: ArticlesMetaData) -> ArticleListDisplayItem {
         

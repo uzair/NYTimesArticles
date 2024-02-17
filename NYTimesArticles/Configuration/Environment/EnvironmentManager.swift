@@ -21,7 +21,6 @@ protocol EnvironmentManagerContractor {
 final class EnvironmentManager: EnvironmentManagerContractor {
 
     private var environment: Environment = .sandbox
-
     static let sharedInstance: EnvironmentManager = EnvironmentManager()
 
     init() {

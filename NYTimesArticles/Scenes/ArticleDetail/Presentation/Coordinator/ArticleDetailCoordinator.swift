@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ArticleDetailCoordinator: Coordinator {
+final class ArticleDetailCoordinator: Coordinator {
     
-    var articleDetailUrl: String?
+    private var articleDetailUrl: String?
     var navigationController: UINavigationController
     
     init(articleDetailUrl: String?, navigationController: UINavigationController) {

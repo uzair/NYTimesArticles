@@ -30,8 +30,8 @@ protocol ArticleDetailViewModelContractor {
 
 final class ArticleDetailViewModel: ArticleDetailViewModelContractor {
     var viewState: Bind<ArticleDetailViewState> = Bind(.idle)
-    var coordinator: Coordinator?
-    var articleUrl: String?
+    private var coordinator: Coordinator?
+    private var articleUrl: String?
     
     init(articleUrl: String?, coordinator: Coordinator?) {
         self.coordinator = coordinator

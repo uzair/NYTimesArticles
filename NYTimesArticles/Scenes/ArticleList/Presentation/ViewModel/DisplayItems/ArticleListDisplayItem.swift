@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArticleListDisplayItem {
+final class ArticleListDisplayItem {
     
     let cellDisplayItems: [ArticleCellDisplayItem]?
     let title: String
