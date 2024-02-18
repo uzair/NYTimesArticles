@@ -10,8 +10,4 @@ target 'NYTimesArticles' do
     # Pods for testing
   end
 
-  target 'NYTimesArticlesUITests' do
-    # Pods for testing
-  end
-
 end
