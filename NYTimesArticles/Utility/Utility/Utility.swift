@@ -16,7 +16,7 @@ final class Utility {
         blockerView.backgroundColor = .clear
         blockerView.tag = 666
         
-        let activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+        let activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         
         activityIndicatorView.center = CGPoint(x: blockerView.frame.width/2.0, y: blockerView.frame.height/2.0)
         activityIndicatorView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
