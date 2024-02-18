@@ -34,4 +34,5 @@ Below is the test coverage of some of the important classes in the project.
 	•	ServiceManager (100%)
 	•	Service Client(93.7 %)
 
- <img width="914" alt="coverage" src="https://github.com/uzair/NYTimesArticles/assets/342173/7d120805-4393-492f-a395-9e0935e41c87">
+
+<img width="913" alt="coverage2" src="https://github.com/uzair/NYTimesArticles/assets/342173/38ff47c2-ec82-4996-8360-dae5fd1250a8">
