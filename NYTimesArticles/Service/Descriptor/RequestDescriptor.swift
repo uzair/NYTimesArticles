@@ -17,8 +17,6 @@ enum HTTPMethod: String {
 typealias Parameters = [String: Any]
 typealias HTTPHeaders = [String: String]
 
-let consentType = "Content-Type"
-
 protocol ParameterEncoding {
     func encode(_ urlRequest: URLRequest, with parameters: Parameters?) throws -> URLRequest
 }
@@ -35,10 +33,6 @@ final class JsonEncoding: ParameterEncoding {
         
         do {
             let data = try JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed)
-            
-            if encodedUrlRequest.value(forHTTPHeaderField: consentType) == nil {
-                encodedUrlRequest.setValue("application/json", forHTTPHeaderField: consentType)
-            }
             
             encodedUrlRequest.httpBody = data
         } catch {
@@ -163,10 +157,6 @@ public struct URLEncoding: ParameterEncoding {
                 urlRequest.url = urlComponents.url
             }
         } else {
-            if urlRequest.value(forHTTPHeaderField: consentType) == nil {
-                urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: consentType)
-            }
-
             urlRequest.httpBody = query(parameters).data(using: .utf8, allowLossyConversion: false)
         }
 
