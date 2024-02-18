@@ -57,8 +57,8 @@ class ArticleListViewController: UIViewController {
             self.title = self.viewModel.listDisplayItem?.title
             self.tableView.reloadData()
             
-        case .error(let string):
-            print("error")
+        case .error(let error):
+            self.showAlert(title: "Error", message:error.errorDescription )
         }
     }
 }
