@@ -25,6 +25,7 @@
 		FA4CD1F92B7DDD760018042D /* ArticleListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4CD1F72B7DDD760018042D /* ArticleListViewController.xib */; };
 		FA4CD1FF2B7E17500018042D /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CD1FD2B7E17500018042D /* ArticleCell.swift */; };
 		FA4CD2002B7E17500018042D /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4CD1FE2B7E17500018042D /* ArticleCell.xib */; };
+		FA5AECC52B81F8590062EE95 /* JsonEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5AECC42B81F8590062EE95 /* JsonEncoding.swift */; };
 		FA5E43D72B7FF022008CC2F0 /* ArticleDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E43D62B7FF022008CC2F0 /* ArticleDetailCoordinator.swift */; };
 		FA71969C2B7CFB5D00BF8DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71969B2B7CFB5D00BF8DA9 /* AppDelegate.swift */; };
 		FA71969E2B7CFB5D00BF8DA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71969D2B7CFB5D00BF8DA9 /* SceneDelegate.swift */; };
@@ -95,6 +96,7 @@
 		FA4CD1F72B7DDD760018042D /* ArticleListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleListViewController.xib; sourceTree = "<group>"; };
 		FA4CD1FD2B7E17500018042D /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		FA4CD1FE2B7E17500018042D /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
+		FA5AECC42B81F8590062EE95 /* JsonEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonEncoding.swift; sourceTree = "<group>"; };
 		FA5E43D62B7FF022008CC2F0 /* ArticleDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailCoordinator.swift; sourceTree = "<group>"; };
 		FA7196982B7CFB5D00BF8DA9 /* NYTimesArticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTimesArticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA71969B2B7CFB5D00BF8DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -293,6 +295,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		FA5AECC32B81F8410062EE95 /* JsonEncoding */ = {
+			isa = PBXGroup;
+			children = (
+				FA5AECC42B81F8590062EE95 /* JsonEncoding.swift */,
+			);
+			path = JsonEncoding;
+			sourceTree = "<group>";
+		};
 		FA71968F2B7CFB5D00BF8DA9 = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +359,7 @@
 		FA7196CF2B7CFEC000BF8DA9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				FA5AECC32B81F8410062EE95 /* JsonEncoding */,
 				FA7196D22B7CFFAD00BF8DA9 /* Descriptor */,
 				FA7196D02B7CFECF00BF8DA9 /* ServiceClient.swift */,
 				FA7196D52B7D009500BF8DA9 /* ServiceError.swift */,
@@ -828,6 +839,7 @@
 				FA0C796B2B7E4C46009BC966 /* ArticleDetailViewController.swift in Sources */,
 				FA7196D42B7CFFBB00BF8DA9 /* RequestDescriptor.swift in Sources */,
 				FA0C79582B7E3431009BC966 /* Utility.swift in Sources */,
+				FA5AECC52B81F8590062EE95 /* JsonEncoding.swift in Sources */,
 				FA7196D12B7CFECF00BF8DA9 /* ServiceClient.swift in Sources */,
 				FA71969E2B7CFB5D00BF8DA9 /* SceneDelegate.swift in Sources */,
 				FA7196E72B7D0E0600BF8DA9 /* ArticleListViewModel.swift in Sources */,
